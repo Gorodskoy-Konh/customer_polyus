@@ -11,13 +11,13 @@ _$_Customer _$$_CustomerFromJson(Map<String, dynamic> json) => _$_Customer(
       login: json['login'] as String,
       password: json['password'] as String,
       fullName: json['fullName'] as String,
-      completedOrderIds: (json['completedOrderIds'] as List<dynamic>)
+      completedOrderIds: (json['completed_order_ids'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
-      futureOrderIds: (json['futureOrderIds'] as List<dynamic>)
+      futureOrderIds: (json['future_order_ids'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
-      currentOrderIds: (json['currentOrderIds'] as List<dynamic>)
+      currentOrderIds: (json['current_order_ids'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
     );
@@ -28,7 +28,7 @@ Map<String, dynamic> _$$_CustomerToJson(_$_Customer instance) =>
       'login': instance.login,
       'password': instance.password,
       'fullName': instance.fullName,
-      'completedOrderIds': instance.completedOrderIds,
-      'futureOrderIds': instance.futureOrderIds,
-      'currentOrderIds': instance.currentOrderIds,
+      'completed_order_ids': instance.completedOrderIds,
+      'future_order_ids': instance.futureOrderIds,
+      'current_order_ids': instance.currentOrderIds,
     };

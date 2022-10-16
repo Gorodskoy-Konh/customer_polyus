@@ -24,8 +24,11 @@ mixin _$Customer {
   String get login => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   String get fullName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'completed_order_ids')
   List<String> get completedOrderIds => throw _privateConstructorUsedError;
+  @JsonKey(name: 'future_order_ids')
   List<String> get futureOrderIds => throw _privateConstructorUsedError;
+  @JsonKey(name: 'current_order_ids')
   List<String> get currentOrderIds => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,9 +47,9 @@ abstract class $CustomerCopyWith<$Res> {
       String login,
       String password,
       String fullName,
-      List<String> completedOrderIds,
-      List<String> futureOrderIds,
-      List<String> currentOrderIds});
+      @JsonKey(name: 'completed_order_ids') List<String> completedOrderIds,
+      @JsonKey(name: 'future_order_ids') List<String> futureOrderIds,
+      @JsonKey(name: 'current_order_ids') List<String> currentOrderIds});
 }
 
 /// @nodoc
@@ -115,9 +118,9 @@ abstract class _$$_CustomerCopyWith<$Res> implements $CustomerCopyWith<$Res> {
       String login,
       String password,
       String fullName,
-      List<String> completedOrderIds,
-      List<String> futureOrderIds,
-      List<String> currentOrderIds});
+      @JsonKey(name: 'completed_order_ids') List<String> completedOrderIds,
+      @JsonKey(name: 'future_order_ids') List<String> futureOrderIds,
+      @JsonKey(name: 'current_order_ids') List<String> currentOrderIds});
 }
 
 /// @nodoc
@@ -180,9 +183,12 @@ class _$_Customer implements _Customer {
       required this.login,
       required this.password,
       required this.fullName,
-      required final List<String> completedOrderIds,
-      required final List<String> futureOrderIds,
-      required final List<String> currentOrderIds})
+      @JsonKey(name: 'completed_order_ids')
+          required final List<String> completedOrderIds,
+      @JsonKey(name: 'future_order_ids')
+          required final List<String> futureOrderIds,
+      @JsonKey(name: 'current_order_ids')
+          required final List<String> currentOrderIds})
       : _completedOrderIds = completedOrderIds,
         _futureOrderIds = futureOrderIds,
         _currentOrderIds = currentOrderIds;
@@ -200,6 +206,7 @@ class _$_Customer implements _Customer {
   final String fullName;
   final List<String> _completedOrderIds;
   @override
+  @JsonKey(name: 'completed_order_ids')
   List<String> get completedOrderIds {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_completedOrderIds);
@@ -207,6 +214,7 @@ class _$_Customer implements _Customer {
 
   final List<String> _futureOrderIds;
   @override
+  @JsonKey(name: 'future_order_ids')
   List<String> get futureOrderIds {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_futureOrderIds);
@@ -214,6 +222,7 @@ class _$_Customer implements _Customer {
 
   final List<String> _currentOrderIds;
   @override
+  @JsonKey(name: 'current_order_ids')
   List<String> get currentOrderIds {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_currentOrderIds);
@@ -275,9 +284,12 @@ abstract class _Customer implements Customer {
       required final String login,
       required final String password,
       required final String fullName,
-      required final List<String> completedOrderIds,
-      required final List<String> futureOrderIds,
-      required final List<String> currentOrderIds}) = _$_Customer;
+      @JsonKey(name: 'completed_order_ids')
+          required final List<String> completedOrderIds,
+      @JsonKey(name: 'future_order_ids')
+          required final List<String> futureOrderIds,
+      @JsonKey(name: 'current_order_ids')
+          required final List<String> currentOrderIds}) = _$_Customer;
 
   factory _Customer.fromJson(Map<String, dynamic> json) = _$_Customer.fromJson;
 
@@ -290,10 +302,13 @@ abstract class _Customer implements Customer {
   @override
   String get fullName;
   @override
+  @JsonKey(name: 'completed_order_ids')
   List<String> get completedOrderIds;
   @override
+  @JsonKey(name: 'future_order_ids')
   List<String> get futureOrderIds;
   @override
+  @JsonKey(name: 'current_order_ids')
   List<String> get currentOrderIds;
   @override
   @JsonKey(ignore: true)

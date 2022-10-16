@@ -21,13 +21,21 @@ Order _$OrderFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Order {
   String get id => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
+  @JsonKey(name: 'customer_id')
   String get customerId => throw _privateConstructorUsedError;
+  @JsonKey(
+      fromJson: DateTimeConverter.timestampToDateTime,
+      toJson: DateTimeConverter.dateTimeToTimestamp)
   DateTime get begin => throw _privateConstructorUsedError;
+  @JsonKey(
+      fromJson: DateTimeConverter.timestampToDateTime,
+      toJson: DateTimeConverter.dateTimeToTimestamp)
   DateTime get end => throw _privateConstructorUsedError;
-  String get transportId =>
-      throw _privateConstructorUsedError; // destination point
-  bool get isCompleteByDriver => throw _privateConstructorUsedError;
-  bool get isCompleteByDispatcher => throw _privateConstructorUsedError;
+  @JsonKey(name: 'transport_id')
+  String get transportId => throw _privateConstructorUsedError;
+  @JsonEnum()
+  OrderStatus get status => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,12 +49,17 @@ abstract class $OrderCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String customerId,
-      DateTime begin,
-      DateTime end,
-      String transportId,
-      bool isCompleteByDriver,
-      bool isCompleteByDispatcher});
+      String description,
+      @JsonKey(name: 'customer_id')
+          String customerId,
+      @JsonKey(fromJson: DateTimeConverter.timestampToDateTime, toJson: DateTimeConverter.dateTimeToTimestamp)
+          DateTime begin,
+      @JsonKey(fromJson: DateTimeConverter.timestampToDateTime, toJson: DateTimeConverter.dateTimeToTimestamp)
+          DateTime end,
+      @JsonKey(name: 'transport_id')
+          String transportId,
+      @JsonEnum()
+          OrderStatus status});
 }
 
 /// @nodoc
@@ -63,17 +76,21 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
   @override
   $Res call({
     Object? id = null,
+    Object? description = null,
     Object? customerId = null,
     Object? begin = null,
     Object? end = null,
     Object? transportId = null,
-    Object? isCompleteByDriver = null,
-    Object? isCompleteByDispatcher = null,
+    Object? status = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
       customerId: null == customerId
           ? _value.customerId
@@ -91,14 +108,10 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
           ? _value.transportId
           : transportId // ignore: cast_nullable_to_non_nullable
               as String,
-      isCompleteByDriver: null == isCompleteByDriver
-          ? _value.isCompleteByDriver
-          : isCompleteByDriver // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isCompleteByDispatcher: null == isCompleteByDispatcher
-          ? _value.isCompleteByDispatcher
-          : isCompleteByDispatcher // ignore: cast_nullable_to_non_nullable
-              as bool,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as OrderStatus,
     ) as $Val);
   }
 }
@@ -111,12 +124,17 @@ abstract class _$$_OrderCopyWith<$Res> implements $OrderCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String customerId,
-      DateTime begin,
-      DateTime end,
-      String transportId,
-      bool isCompleteByDriver,
-      bool isCompleteByDispatcher});
+      String description,
+      @JsonKey(name: 'customer_id')
+          String customerId,
+      @JsonKey(fromJson: DateTimeConverter.timestampToDateTime, toJson: DateTimeConverter.dateTimeToTimestamp)
+          DateTime begin,
+      @JsonKey(fromJson: DateTimeConverter.timestampToDateTime, toJson: DateTimeConverter.dateTimeToTimestamp)
+          DateTime end,
+      @JsonKey(name: 'transport_id')
+          String transportId,
+      @JsonEnum()
+          OrderStatus status});
 }
 
 /// @nodoc
@@ -129,17 +147,21 @@ class __$$_OrderCopyWithImpl<$Res> extends _$OrderCopyWithImpl<$Res, _$_Order>
   @override
   $Res call({
     Object? id = null,
+    Object? description = null,
     Object? customerId = null,
     Object? begin = null,
     Object? end = null,
     Object? transportId = null,
-    Object? isCompleteByDriver = null,
-    Object? isCompleteByDispatcher = null,
+    Object? status = null,
   }) {
     return _then(_$_Order(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
       customerId: null == customerId
           ? _value.customerId
@@ -157,14 +179,10 @@ class __$$_OrderCopyWithImpl<$Res> extends _$OrderCopyWithImpl<$Res, _$_Order>
           ? _value.transportId
           : transportId // ignore: cast_nullable_to_non_nullable
               as String,
-      isCompleteByDriver: null == isCompleteByDriver
-          ? _value.isCompleteByDriver
-          : isCompleteByDriver // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isCompleteByDispatcher: null == isCompleteByDispatcher
-          ? _value.isCompleteByDispatcher
-          : isCompleteByDispatcher // ignore: cast_nullable_to_non_nullable
-              as bool,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as OrderStatus,
     ));
   }
 }
@@ -174,12 +192,17 @@ class __$$_OrderCopyWithImpl<$Res> extends _$OrderCopyWithImpl<$Res, _$_Order>
 class _$_Order implements _Order {
   _$_Order(
       {required this.id,
-      required this.customerId,
-      required this.begin,
-      required this.end,
-      required this.transportId,
-      this.isCompleteByDriver = false,
-      this.isCompleteByDispatcher = false});
+      required this.description,
+      @JsonKey(name: 'customer_id')
+          required this.customerId,
+      @JsonKey(fromJson: DateTimeConverter.timestampToDateTime, toJson: DateTimeConverter.dateTimeToTimestamp)
+          required this.begin,
+      @JsonKey(fromJson: DateTimeConverter.timestampToDateTime, toJson: DateTimeConverter.dateTimeToTimestamp)
+          required this.end,
+      @JsonKey(name: 'transport_id')
+          required this.transportId,
+      @JsonEnum()
+          this.status = OrderStatus.processing});
 
   factory _$_Order.fromJson(Map<String, dynamic> json) =>
       _$$_OrderFromJson(json);
@@ -187,24 +210,31 @@ class _$_Order implements _Order {
   @override
   final String id;
   @override
+  final String description;
+  @override
+  @JsonKey(name: 'customer_id')
   final String customerId;
   @override
+  @JsonKey(
+      fromJson: DateTimeConverter.timestampToDateTime,
+      toJson: DateTimeConverter.dateTimeToTimestamp)
   final DateTime begin;
   @override
+  @JsonKey(
+      fromJson: DateTimeConverter.timestampToDateTime,
+      toJson: DateTimeConverter.dateTimeToTimestamp)
   final DateTime end;
   @override
+  @JsonKey(name: 'transport_id')
   final String transportId;
-// destination point
   @override
   @JsonKey()
-  final bool isCompleteByDriver;
-  @override
-  @JsonKey()
-  final bool isCompleteByDispatcher;
+  @JsonEnum()
+  final OrderStatus status;
 
   @override
   String toString() {
-    return 'Order(id: $id, customerId: $customerId, begin: $begin, end: $end, transportId: $transportId, isCompleteByDriver: $isCompleteByDriver, isCompleteByDispatcher: $isCompleteByDispatcher)';
+    return 'Order(id: $id, description: $description, customerId: $customerId, begin: $begin, end: $end, transportId: $transportId, status: $status)';
   }
 
   @override
@@ -213,22 +243,21 @@ class _$_Order implements _Order {
         (other.runtimeType == runtimeType &&
             other is _$_Order &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             (identical(other.customerId, customerId) ||
                 other.customerId == customerId) &&
             (identical(other.begin, begin) || other.begin == begin) &&
             (identical(other.end, end) || other.end == end) &&
             (identical(other.transportId, transportId) ||
                 other.transportId == transportId) &&
-            (identical(other.isCompleteByDriver, isCompleteByDriver) ||
-                other.isCompleteByDriver == isCompleteByDriver) &&
-            (identical(other.isCompleteByDispatcher, isCompleteByDispatcher) ||
-                other.isCompleteByDispatcher == isCompleteByDispatcher));
+            (identical(other.status, status) || other.status == status));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, customerId, begin, end,
-      transportId, isCompleteByDriver, isCompleteByDispatcher);
+  int get hashCode => Object.hash(runtimeType, id, description, customerId,
+      begin, end, transportId, status);
 
   @JsonKey(ignore: true)
   @override
@@ -247,29 +276,43 @@ class _$_Order implements _Order {
 abstract class _Order implements Order {
   factory _Order(
       {required final String id,
-      required final String customerId,
-      required final DateTime begin,
-      required final DateTime end,
-      required final String transportId,
-      final bool isCompleteByDriver,
-      final bool isCompleteByDispatcher}) = _$_Order;
+      required final String description,
+      @JsonKey(name: 'customer_id')
+          required final String customerId,
+      @JsonKey(fromJson: DateTimeConverter.timestampToDateTime, toJson: DateTimeConverter.dateTimeToTimestamp)
+          required final DateTime begin,
+      @JsonKey(fromJson: DateTimeConverter.timestampToDateTime, toJson: DateTimeConverter.dateTimeToTimestamp)
+          required final DateTime end,
+      @JsonKey(name: 'transport_id')
+          required final String transportId,
+      @JsonEnum()
+          final OrderStatus status}) = _$_Order;
 
   factory _Order.fromJson(Map<String, dynamic> json) = _$_Order.fromJson;
 
   @override
   String get id;
   @override
+  String get description;
+  @override
+  @JsonKey(name: 'customer_id')
   String get customerId;
   @override
+  @JsonKey(
+      fromJson: DateTimeConverter.timestampToDateTime,
+      toJson: DateTimeConverter.dateTimeToTimestamp)
   DateTime get begin;
   @override
+  @JsonKey(
+      fromJson: DateTimeConverter.timestampToDateTime,
+      toJson: DateTimeConverter.dateTimeToTimestamp)
   DateTime get end;
   @override
+  @JsonKey(name: 'transport_id')
   String get transportId;
-  @override // destination point
-  bool get isCompleteByDriver;
   @override
-  bool get isCompleteByDispatcher;
+  @JsonEnum()
+  OrderStatus get status;
   @override
   @JsonKey(ignore: true)
   _$$_OrderCopyWith<_$_Order> get copyWith =>

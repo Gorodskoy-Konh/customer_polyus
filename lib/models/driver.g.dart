@@ -11,7 +11,7 @@ _$_Driver _$$_DriverFromJson(Map<String, dynamic> json) => _$_Driver(
       type: json['type'] as String,
       monthHours: json['monthHours'] as int,
       allHours: json['allHours'] as int,
-      dailyTransportId: json['dailyTransportId'] as String,
+      dailyTransportId: json['daily_transport_id'] as String,
       id: json['id'] as String,
     );
 
@@ -20,6 +20,6 @@ Map<String, dynamic> _$$_DriverToJson(_$_Driver instance) => <String, dynamic>{
       'type': instance.type,
       'monthHours': instance.monthHours,
       'allHours': instance.allHours,
-      'dailyTransportId': instance.dailyTransportId,
+      'daily_transport_id': instance.dailyTransportId,
       'id': instance.id,
     };

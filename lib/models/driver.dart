@@ -14,6 +14,7 @@ class Driver with _$Driver {
     required String type,
     required int monthHours,
     required int allHours,
+    @JsonKey(name: 'daily_transport_id')
     required String dailyTransportId,
     required String id,
   }) = _Driver;

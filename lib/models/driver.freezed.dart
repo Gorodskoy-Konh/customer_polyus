@@ -24,6 +24,7 @@ mixin _$Driver {
   String get type => throw _privateConstructorUsedError;
   int get monthHours => throw _privateConstructorUsedError;
   int get allHours => throw _privateConstructorUsedError;
+  @JsonKey(name: 'daily_transport_id')
   String get dailyTransportId => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
 
@@ -42,7 +43,7 @@ abstract class $DriverCopyWith<$Res> {
       String type,
       int monthHours,
       int allHours,
-      String dailyTransportId,
+      @JsonKey(name: 'daily_transport_id') String dailyTransportId,
       String id});
 }
 
@@ -106,7 +107,7 @@ abstract class _$$_DriverCopyWith<$Res> implements $DriverCopyWith<$Res> {
       String type,
       int monthHours,
       int allHours,
-      String dailyTransportId,
+      @JsonKey(name: 'daily_transport_id') String dailyTransportId,
       String id});
 }
 
@@ -164,7 +165,7 @@ class _$_Driver with DiagnosticableTreeMixin implements _Driver {
       required this.type,
       required this.monthHours,
       required this.allHours,
-      required this.dailyTransportId,
+      @JsonKey(name: 'daily_transport_id') required this.dailyTransportId,
       required this.id});
 
   factory _$_Driver.fromJson(Map<String, dynamic> json) =>
@@ -179,6 +180,7 @@ class _$_Driver with DiagnosticableTreeMixin implements _Driver {
   @override
   final int allHours;
   @override
+  @JsonKey(name: 'daily_transport_id')
   final String dailyTransportId;
   @override
   final String id;
@@ -242,7 +244,8 @@ abstract class _Driver implements Driver {
       required final String type,
       required final int monthHours,
       required final int allHours,
-      required final String dailyTransportId,
+      @JsonKey(name: 'daily_transport_id')
+          required final String dailyTransportId,
       required final String id}) = _$_Driver;
 
   factory _Driver.fromJson(Map<String, dynamic> json) = _$_Driver.fromJson;
@@ -256,6 +259,7 @@ abstract class _Driver implements Driver {
   @override
   int get allHours;
   @override
+  @JsonKey(name: 'daily_transport_id')
   String get dailyTransportId;
   @override
   String get id;

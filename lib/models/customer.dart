@@ -9,8 +9,11 @@ class Customer with _$Customer {
     required String login,
     required String password,
     required String fullName,
+    @JsonKey(name: 'completed_order_ids')
     required List<String> completedOrderIds,
+    @JsonKey(name: 'future_order_ids')
     required List<String> futureOrderIds,
+    @JsonKey(name: 'current_order_ids')
     required List<String> currentOrderIds,
   }) = _Customer;
 

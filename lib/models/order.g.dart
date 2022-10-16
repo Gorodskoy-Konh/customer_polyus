@@ -8,20 +8,30 @@ part of 'order.dart';
 
 _$_Order _$$_OrderFromJson(Map<String, dynamic> json) => _$_Order(
       id: json['id'] as String,
-      customerId: json['customerId'] as String,
-      begin: DateTime.parse(json['begin'] as String),
-      end: DateTime.parse(json['end'] as String),
-      transportId: json['transportId'] as String,
-      isCompleteByDriver: json['isCompleteByDriver'] as bool? ?? false,
-      isCompleteByDispatcher: json['isCompleteByDispatcher'] as bool? ?? false,
+      description: json['description'] as String,
+      customerId: json['customer_id'] as String,
+      begin: DateTimeConverter.timestampToDateTime(json['begin'] as int),
+      end: DateTimeConverter.timestampToDateTime(json['end'] as int),
+      transportId: json['transport_id'] as String,
+      status: $enumDecodeNullable(_$OrderStatusEnumMap, json['status']) ??
+          OrderStatus.processing,
     );
 
 Map<String, dynamic> _$$_OrderToJson(_$_Order instance) => <String, dynamic>{
       'id': instance.id,
-      'customerId': instance.customerId,
-      'begin': instance.begin.toIso8601String(),
-      'end': instance.end.toIso8601String(),
-      'transportId': instance.transportId,
-      'isCompleteByDriver': instance.isCompleteByDriver,
-      'isCompleteByDispatcher': instance.isCompleteByDispatcher,
+      'description': instance.description,
+      'customer_id': instance.customerId,
+      'begin': DateTimeConverter.dateTimeToTimestamp(instance.begin),
+      'end': DateTimeConverter.dateTimeToTimestamp(instance.end),
+      'transport_id': instance.transportId,
+      'status': _$OrderStatusEnumMap[instance.status]!,
     };
+
+const _$OrderStatusEnumMap = {
+  OrderStatus.complete: 'complete',
+  OrderStatus.confirmed_by_driver: 'confirmed_by_driver',
+  OrderStatus.in_progress: 'in_progress',
+  OrderStatus.driver_is_defined: 'driver_is_defined',
+  OrderStatus.driver_is_not_defined: 'driver_is_not_defined',
+  OrderStatus.processing: 'processing',
+};
